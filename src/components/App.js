@@ -4,7 +4,7 @@ import React from "react";
 const App = () => {
   return (
     <div className="App">
-      <main></main>
+      <main>Hola mundo</main>
     </div>
   );
 };
