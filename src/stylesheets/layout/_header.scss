@@ -1,3 +1,5 @@
+@import "../mixins.scss";
+
 .header {
   background-color: black;
   display: flex;
@@ -5,6 +7,9 @@
   align-items: center;
   padding: 50px;
   &__img {
-    height: 150px;
+    height: 95px;
+    @include tablet {
+      height: 150px;
+    }
   }
 }

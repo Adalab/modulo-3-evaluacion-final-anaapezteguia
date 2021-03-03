@@ -1,9 +1,15 @@
+@import "../mixins.scss";
+
 .footer {
   background-color: black;
   display: flex;
-  justify-content: right;
+  justify-content: center;
   align-items: center;
   padding: 20px 25px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   &__small {
     color: #04afc7;
     font-weight: 700;
