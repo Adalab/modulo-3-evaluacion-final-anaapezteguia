@@ -1,0 +1,23 @@
+.charList {
+  background-color: #04afc7;
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0;
+  }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+    &--item {
+      margin: 25px;
+      width: 200px;
+    }
+  }
+}

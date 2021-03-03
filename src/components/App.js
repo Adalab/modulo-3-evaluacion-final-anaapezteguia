@@ -16,7 +16,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <main className="main">
+      <main className="wrapper">
         {/* <Filters /> */}
         <CharacterList characterList={characters} />
         {/* <Switch>
