@@ -1,17 +1,30 @@
 import "../stylesheets/App.scss";
 import React, { useEffect, useState } from "react";
+// import { Route, Switch } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
+// import Filters from "./Filters";
+import CharacterList from "./CharacterList";
 import getDataFromApi from "../services/getDataFromApi";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
   useEffect(() => {
-    // console.log(getDataFromApi());
     getDataFromApi().then((data) => setCharacters(data));
   }, []);
   console.log(characters);
   return (
     <div className="App">
-      <main>Hola mundo, probando que se pintan mis datos en la consola :)</main>
+      <Header />
+      <main className="main">
+        {/* <Filters /> */}
+        <CharacterList characterList={characters} />
+        {/* <Switch>
+          <Route exact path="/" component={CharacterList} />
+          <Route path="/CharacterDetail"  /> 
+        </Switch> */}
+      </main>
+      <Footer />
     </div>
   );
 };

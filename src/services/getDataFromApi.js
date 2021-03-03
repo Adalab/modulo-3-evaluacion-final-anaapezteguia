@@ -1,9 +1,9 @@
 const getDataFromApi = () => {
   return (
     fetch(
-      "https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json"
+      "//raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json"
     )
-      // cambiar por https://rickandmortyapi.com/api/character antes de subir
+      // cambiar por '//rickandmortyapi.com/api/character' antes de subir
       .then((response) => response.json())
       .then((data) => {
         return data.results.map((character) => {
