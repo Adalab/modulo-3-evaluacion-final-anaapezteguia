@@ -6,7 +6,7 @@ const CharacterList = (props) => {
   const arrangedList = props.arrangedList.map((character) => {
     return (
       <li className="charList__item" key={character.id}>
-        <Character character={character} />
+        <Character character={character} statusIcon={props.statusIcon} />
       </li>
     );
   });

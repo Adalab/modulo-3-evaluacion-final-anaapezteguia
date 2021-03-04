@@ -3,15 +3,6 @@ import { Link } from "react-router-dom";
 
 const CharacterDetail = (props) => {
   const charProps = props.selectedCharacter; //OBJETO!!!!!!
-  const status = charProps.status;
-  let statusIcon = "";
-  if (status === "Dead") {
-    statusIcon = "fas fa-skull";
-  } else if (status === "Alive") {
-    statusIcon = "fas fa-heartbeat";
-  } else {
-    statusIcon = "fas fa-question-circle";
-  }
   return (
     <section className="charDetail">
       <Link to="/" className="charDetail__link">
@@ -32,7 +23,11 @@ const CharacterDetail = (props) => {
           <p>Origin: {charProps.origin}</p>
           <p>Appears in {charProps.episodes} episodes.</p>
           <p>
-            Status: <i className={statusIcon} title={status}></i>
+            Status:
+            <i
+              className={props.statusIcon}
+              title={`Status: ${charProps.status}`}
+            ></i>
           </p>
         </div>
       </div>
