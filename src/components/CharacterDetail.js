@@ -1,4 +1,5 @@
 import "../stylesheets/layout/_charDetail.scss";
+import { Link } from "react-router-dom";
 
 const CharacterDetail = (props) => {
   const charProps = props.selectedCharacter; //OBJETO!!!!!!
@@ -13,6 +14,11 @@ const CharacterDetail = (props) => {
   }
   return (
     <section className="charDetail">
+      <Link to="/" className="charDetail__link">
+        <i className="fas fa-arrow-alt-circle-left">
+          <span className="charDetail__back">Back</span>
+        </i>
+      </Link>
       <div className="charDetail__wrap">
         <img
           className="charDetail__img"

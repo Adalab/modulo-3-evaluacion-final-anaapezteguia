@@ -38,6 +38,11 @@ const App = () => {
   //     return character.species === filteredSpecies;
   //   }
   // });
+  const arrangedList = filteredCharacters.sort((a, z) =>
+    a.name > z.name ? 1 : a.name < z.name ? -1 : 0
+  );
+  // console.log(arrangedList);
+
   const renderCharacterDetail = (props) => {
     const id = parseInt(props.match.params.id);
     const selectedCharacter = characters.find((character) => {
@@ -53,7 +58,7 @@ const App = () => {
       <main className="wrapper">
         <Switch>
           <Route exact path="/">
-            <CharacterList characterList={filteredCharacters} />
+            <CharacterList arrangedList={arrangedList} />
           </Route>
           <Route path="/character-details/:id" render={renderCharacterDetail} />
         </Switch>
