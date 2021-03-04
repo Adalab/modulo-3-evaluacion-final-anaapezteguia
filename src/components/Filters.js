@@ -9,11 +9,13 @@ const handleSubmit = (ev) => {
 const Filters = (props) => {
   return (
     <section className="filters">
-      <form onSubmit={handleSubmit}>
-        <h2 className="form__title">Search by</h2>
-        <FilterByName handleFilter={props.handleFilter} />
-        {/* <FilterBySpecies handleFilter={props.handleFilter} /> */}
-      </form>
+      <div className="wrapper">
+        <form onSubmit={handleSubmit}>
+          <h2 className="form__title">Search by</h2>
+          <FilterByName handleFilter={props.handleFilter} />
+          {/* <FilterBySpecies handleFilter={props.handleFilter} /> */}
+        </form>
+      </div>
     </section>
   );
 };

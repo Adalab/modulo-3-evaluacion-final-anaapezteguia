@@ -1,6 +1,16 @@
+@import "./core/mixins.scss";
+
 .App {
   font-family: "Open Sans", sans-serif;
 }
 .wrapper {
-  min-height: 75vh;
+  // min-height: 75vh;
+  margin: 0 20px;
+  @include tablet {
+    margin: 0 50px;
+  }
+  @include desktop {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
 }

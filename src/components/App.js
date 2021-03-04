@@ -16,7 +16,7 @@ const App = () => {
   useEffect(() => {
     getDataFromApi().then((data) => setCharacters(data));
   }, []);
-  // console.log(characters);
+  console.log(characters);
 
   const handleFilter = (newValue) => {
     if (newValue.key === "name") {
@@ -49,8 +49,8 @@ const App = () => {
   return (
     <div className="App">
       <Header />
+      <Filters handleFilter={handleFilter} />
       <main className="wrapper">
-        <Filters handleFilter={handleFilter} />
         <Switch>
           <Route exact path="/">
             <CharacterList characterList={filteredCharacters} />

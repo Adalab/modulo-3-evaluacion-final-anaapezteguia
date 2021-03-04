@@ -7,8 +7,8 @@
   background-color: black;
   &__img {
     margin: 0;
-    height: 140px;
-    width: 140px;
+    height: 160px;
+    width: 160px;
   }
   &__wrap {
     margin: 12px 0 6px 0;
@@ -26,8 +26,14 @@
   }
   &__species {
     font-weight: 300;
-    font-size: 14px;
-    text-align: left;
+    font-size: 18px;
+    // text-align: left;
     color: white;
+    padding: 3px 0;
+    display: inline;
   }
+}
+
+.fas {
+  margin: 0 6px;
 }
