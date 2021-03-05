@@ -16,7 +16,7 @@ El ejercicio consiste en desarrollar una página web con un listado de personaje
 
 #### Bonus
 
-Se evalúan ciertas adicionales como las citadas a continuación:
+Se evalúan ciertas características adicionales como las citadas a continuación:
 
 - Semántica, responsive, iconos extra...
 - Mensajes al usuario si no se obtienen los resultados de búsqueda esperados.
