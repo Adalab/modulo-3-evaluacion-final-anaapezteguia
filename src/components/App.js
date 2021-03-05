@@ -7,6 +7,7 @@ import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
 import getDataFromApi from "../services/getDataFromApi";
+import NotFound from "./NotFound";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
@@ -36,11 +37,15 @@ const App = () => {
     });
 
   const renderCharacterDetail = (props) => {
-    const id = parseInt(props.match.params.id);
-    const selectedCharacter = characters.find((character) => {
-      return character.id === id;
+    const selectedCharacterId = parseInt(props.match.params.id);
+    const foundCharacter = characters.find((character) => {
+      return character.id === selectedCharacterId;
     });
-    return <CharacterDetail selectedCharacter={selectedCharacter} />;
+    if (foundCharacter) {
+      return <CharacterDetail selectedCharacter={foundCharacter} />;
+    } else {
+      return <NotFound />;
+    }
   };
 
   return (
