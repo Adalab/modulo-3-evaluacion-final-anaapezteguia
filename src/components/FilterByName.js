@@ -1,4 +1,4 @@
-//importar scss
+import PropTypes from "prop-types";
 
 const FilterByName = (props) => {
   const handleChange = (ev) => {
@@ -8,7 +8,7 @@ const FilterByName = (props) => {
     });
   };
   return (
-    <>
+    <div className="form__search">
       <label className="form__label" htmlFor="name">
         Name:
       </label>
@@ -20,7 +20,12 @@ const FilterByName = (props) => {
         value={props.nameState}
         onChange={handleChange}
       />
-    </>
+    </div>
   );
+};
+FilterByName.propTypes = {
+  nameState: PropTypes.string,
+  speciesState: PropTypes.string,
+  handleFilter: PropTypes.func,
 };
 export default FilterByName;

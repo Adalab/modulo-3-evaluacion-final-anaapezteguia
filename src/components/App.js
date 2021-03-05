@@ -37,12 +37,14 @@ const App = () => {
     });
 
   const renderCharacterDetail = (props) => {
-    const selectedCharacterId = parseInt(props.match.params.id);
-    const foundCharacter = characters.find((character) => {
-      return character.id === selectedCharacterId;
+    //we specify here the param that goes after : at Route component
+    const path = props.match.params.url;
+    const selectedCharacter = characters.find((character) => {
+      // urlPath is a prop specifically prepared at getDataFromApi to prepare the "pretty url" for SEO, out here did not work
+      return character.urlPath === path;
     });
-    if (foundCharacter) {
-      return <CharacterDetail selectedCharacter={foundCharacter} />;
+    if (selectedCharacter) {
+      return <CharacterDetail selectedCharacter={selectedCharacter} />;
     } else {
       return <NotFound />;
     }
@@ -61,7 +63,10 @@ const App = () => {
             />
             <CharacterList filteredCharacters={filteredCharacters} />
           </Route>
-          <Route path="/character-details/:id" render={renderCharacterDetail} />
+          <Route
+            path="/character-details/:url"
+            render={renderCharacterDetail}
+          />
         </Switch>
       </main>
       <Footer />

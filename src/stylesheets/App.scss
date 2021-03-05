@@ -1,7 +1,7 @@
 @import "./core/mixins.scss";
 
 .App {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Courier Prime", monospace;
 }
 .wrapper {
   margin: 0 20px;
@@ -13,9 +13,7 @@
     max-width: 1200px;
   }
 }
-.hidden {
-  display: none;
-}
-.block {
-  display: block;
+.main {
+  display: flex;
+  flex-direction: column;
 }

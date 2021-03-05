@@ -11,9 +11,10 @@ const Character = (props) => {
   } else {
     statusIcon = "fas fa-question-circle";
   }
+
   return (
     <article className="character">
-      <Link to={`/character-details/${props.character.id}`}>
+      <Link to={`/character-details/${props.character.urlPath}`}>
         <img
           className="character__img"
           src={props.character.image}
@@ -40,5 +41,6 @@ Character.propTypes = {
   name: PropTypes.string,
   species: PropTypes.string,
   status: PropTypes.string,
+  urlPath: PropTypes.string,
 };
 export default Character;

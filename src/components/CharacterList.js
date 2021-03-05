@@ -14,7 +14,7 @@ const CharacterList = (props) => {
     ghostClass = "hidden";
     arrangedList = props.filteredCharacters.map((character) => {
       return (
-        <li className="charList__item" key={character.id}>
+        <li className="charList__list--item" key={character.id}>
           <Character character={character} />
         </li>
       );

@@ -15,6 +15,7 @@ const getDataFromApi = () => {
           image: character.image,
           episodes: character.episode.length,
           created: character.created,
+          urlPath: character.name.split(" ").join("-").toLowerCase(),
         };
       });
     });

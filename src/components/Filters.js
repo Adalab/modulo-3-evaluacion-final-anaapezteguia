@@ -29,5 +29,8 @@ const Filters = (props) => {
 };
 Filters.propTypes = {
   filteredCharacters: PropTypes.arrayOf(PropTypes.object),
+  nameState: PropTypes.string,
+  speciesState: PropTypes.string,
+  handleFilter: PropTypes.func,
 };
 export default Filters;
