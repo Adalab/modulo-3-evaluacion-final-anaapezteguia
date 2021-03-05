@@ -1,8 +1,17 @@
 import "../stylesheets/layout/_charDetail.scss";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const CharacterDetail = (props) => {
   const charProps = props.selectedCharacter; //OBJETO!!!!!!
+  let statusIcon = "";
+  if (charProps.status === "Dead") {
+    statusIcon = "fas fa-skull";
+  } else if (charProps.status === "Alive") {
+    statusIcon = "fas fa-heartbeat";
+  } else {
+    statusIcon = "fas fa-question-circle";
+  }
   return (
     <section className="charDetail">
       <Link to="/" className="charDetail__link">
@@ -24,15 +33,21 @@ const CharacterDetail = (props) => {
           <p>Appears in {charProps.episodes} episodes.</p>
           <p>
             Status:
-            <i
-              className={props.statusIcon}
-              title={`Status: ${charProps.status}`}
-            ></i>
+            <i className={statusIcon} title={`Status: ${charProps.status}`}></i>
           </p>
         </div>
       </div>
     </section>
   );
+};
+CharacterDetail.propTypes = {
+  selectedCharacter: PropTypes.object,
+  src: PropTypes.string,
+  name: PropTypes.string,
+  species: PropTypes.string,
+  origin: PropTypes.string,
+  status: PropTypes.string,
+  episodes: PropTypes.number,
 };
 
 export default CharacterDetail;

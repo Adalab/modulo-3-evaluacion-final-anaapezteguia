@@ -3,10 +3,10 @@ import Character from "./Character";
 import PropTypes from "prop-types";
 
 const CharacterList = (props) => {
-  const arrangedList = props.arrangedList.map((character) => {
+  const arrangedList = props.filteredCharacters.map((character) => {
     return (
       <li className="charList__item" key={character.id}>
-        <Character character={character} statusIcon={props.statusIcon} />
+        <Character character={character} />
       </li>
     );
   });
@@ -18,6 +18,7 @@ const CharacterList = (props) => {
   );
 };
 CharacterList.propTypes = {
-  arrangedList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  character: PropTypes.object,
+  filteredCharacters: PropTypes.arrayOf(PropTypes.object),
 };
 export default CharacterList;

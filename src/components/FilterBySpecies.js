@@ -3,7 +3,7 @@
 const FilterBySpecies = (props) => {
   const handleChange = (ev) => {
     props.handleFilter({
-      key: "species",
+      key: "speciesValue",
       value: ev.target.value,
     });
   };
@@ -14,14 +14,13 @@ const FilterBySpecies = (props) => {
       </label>
       <select
         className="form__input"
-        name="selectSpecies"
+        name="speciesValue"
         id="species"
         onChange={handleChange}
       >
-        <option value="">Choose one</option>
+        <option value="noFilter">Choose one</option>
         <option value="human">Human</option>
         <option value="alien">Alien</option>
-        {/* <option value="wtf">WTF</option> */}
       </select>
     </>
   );

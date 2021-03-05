@@ -1,6 +1,7 @@
 import FilterByName from "./FilterByName";
-// import FilterBySpecies from "./FilterBySpecies";
+import FilterBySpecies from "./FilterBySpecies";
 import "../stylesheets/layout/_filters.scss";
+import PropTypes from "prop-types";
 
 const handleSubmit = (ev) => {
   ev.preventDefault();
@@ -12,11 +13,17 @@ const Filters = (props) => {
       <div className="wrapper">
         <form onSubmit={handleSubmit}>
           <h2 className="form__title">Search by</h2>
-          <FilterByName handleFilter={props.handleFilter} />
-          {/* <FilterBySpecies handleFilter={props.handleFilter} /> */}
+          <FilterByName
+            handleFilter={props.handleFilter}
+            filteredCharacters={props.filteredCharacters}
+          />
+          <FilterBySpecies handleFilter={props.handleFilter} />
         </form>
       </div>
     </section>
   );
+};
+Filters.propTypes = {
+  filteredCharacters: PropTypes.arrayOf(PropTypes.object),
 };
 export default Filters;
