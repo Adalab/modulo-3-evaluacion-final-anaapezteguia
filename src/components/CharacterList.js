@@ -6,7 +6,6 @@ let ghostClass = "hidden";
 const CharacterList = (props) => {
   let message = "";
   let arrangedList = [];
-  console.log(props.filteredCharacters.length);
   if (props.filteredCharacters.length === 0) {
     ghostClass = "";
     message =

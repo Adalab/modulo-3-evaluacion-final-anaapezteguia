@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const CharacterDetail = (props) => {
-  const charProps = props.selectedCharacter; //OBJETO!!!!!!
+  const charProps = props.selectedCharacter;
   let statusIcon = "";
   if (charProps.status === "Dead") {
     statusIcon = "fas fa-skull";
