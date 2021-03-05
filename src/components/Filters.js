@@ -16,8 +16,12 @@ const Filters = (props) => {
           <FilterByName
             handleFilter={props.handleFilter}
             filteredCharacters={props.filteredCharacters}
+            nameState={props.nameState}
           />
-          <FilterBySpecies handleFilter={props.handleFilter} />
+          <FilterBySpecies
+            handleFilter={props.handleFilter}
+            speciesState={props.speciesState}
+          />
         </form>
       </div>
     </section>

@@ -10,36 +10,29 @@ import getDataFromApi from "../services/getDataFromApi";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  const [name, setName] = useState("");
-  const [species, setSpecies] = useState("noFilter");
-  const message =
-    "There is no character that matches your search. Please try again.";
+  const [nameState, setNameState] = useState("");
+  const [speciesState, setSpeciesState] = useState("noFilter");
+
   useEffect(() => {
     getDataFromApi().then((data) => setCharacters(data));
   }, []);
-
   const handleFilter = (newValue) => {
-    console.log(newValue);
     if (newValue.key === "name") {
-      setName(newValue.value);
+      setNameState(newValue.value);
     } else if (newValue.key === "speciesValue") {
-      setSpecies(newValue.value);
+      setSpeciesState(newValue.value);
     }
-    // console.log(species);
   };
 
   const filteredCharacters = characters
     .filter((character) => {
-      return character.name.toLowerCase().includes(name.toLowerCase());
+      return character.name.toLowerCase().includes(nameState.toLowerCase());
     })
     .sort((a, z) => (a.name > z.name ? 1 : a.name < z.name ? -1 : 0))
     .filter((character) => {
-      return species === "noFilter" ? true : character.species === species;
-      // if (species === "noFilter") {
-      //   return true;
-      // } else {
-      //   return character.species === species;
-      // }
+      return speciesState === "noFilter"
+        ? true
+        : character.species === speciesState;
     });
 
   const renderCharacterDetail = (props) => {
@@ -53,11 +46,14 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <Filters handleFilter={handleFilter} />
-      <main className="wrapper">
-        <p className="charList_message hidden">{message}</p>
+      <main className="main">
         <Switch>
           <Route exact path="/">
+            <Filters
+              handleFilter={handleFilter}
+              nameState={nameState}
+              speciesState={speciesState}
+            />
             <CharacterList filteredCharacters={filteredCharacters} />
           </Route>
           <Route path="/character-details/:id" render={renderCharacterDetail} />
