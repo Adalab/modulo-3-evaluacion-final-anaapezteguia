@@ -7,7 +7,7 @@ const Header = () => {
     <header className="header">
       <Link to="/">
         <img
-          className="header__img"
+          className="header__img  animate__animated animate__pulse animate__slower animate__infinite"
           src={logo}
           title="Ricky and Morty"
           alt="Ricky and Morty"

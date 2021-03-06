@@ -13,7 +13,7 @@ const Character = (props) => {
   }
 
   return (
-    <article className="character">
+    <article className="character animate__animated animate__flipInX">
       <Link to={`/character-details/${props.character.urlPath}`}>
         <img
           className="character__img"

@@ -10,13 +10,17 @@ import getDataFromApi from "../services/getDataFromApi";
 import NotFound from "./NotFound";
 
 const App = () => {
+  //declare states
   const [characters, setCharacters] = useState([]);
   const [nameState, setNameState] = useState("");
   const [speciesState, setSpeciesState] = useState("noFilter");
 
+  // get data from API
   useEffect(() => {
     getDataFromApi().then((data) => setCharacters(data));
   }, []);
+
+  // handle filter
   const handleFilter = (newValue) => {
     if (newValue.key === "name") {
       setNameState(newValue.value);
@@ -24,7 +28,7 @@ const App = () => {
       setSpeciesState(newValue.value);
     }
   };
-
+  // filters
   const filteredCharacters = characters
     .filter((character) => {
       return character.name.toLowerCase().includes(nameState.toLowerCase());
@@ -36,6 +40,7 @@ const App = () => {
         : character.species === speciesState;
     });
 
+  // render character detail page or not found
   const renderCharacterDetail = (props) => {
     //we specify here the param that goes after : at Route component
     const path = props.match.params.url;
@@ -50,6 +55,7 @@ const App = () => {
     }
   };
 
+  // let's paint something
   return (
     <div className="App">
       <Header />

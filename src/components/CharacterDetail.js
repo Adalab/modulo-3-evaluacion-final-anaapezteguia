@@ -5,12 +5,20 @@ import PropTypes from "prop-types";
 const CharacterDetail = (props) => {
   const charProps = props.selectedCharacter;
   let statusIcon = "";
+  let genderIcon = "";
   if (charProps.status === "Dead") {
     statusIcon = "fas fa-skull";
   } else if (charProps.status === "Alive") {
     statusIcon = "fas fa-heartbeat";
   } else {
     statusIcon = "fas fa-question-circle";
+  }
+  if (charProps.gender === "Male") {
+    genderIcon = "fas fa-mars";
+  } else if (charProps.gender === "Female") {
+    genderIcon = "fas fa-venus";
+  } else {
+    genderIcon = "fas fa-question-circle";
   }
   return (
     <section className="charDetail">
@@ -30,10 +38,23 @@ const CharacterDetail = (props) => {
           <h3 className="charDetail__info--name">{charProps.name}</h3>
           <p>Species: {charProps.species}</p>
           <p>Origin: {charProps.origin}</p>
+          <p>Location: {charProps.location}</p>
           <p>Appears in {charProps.episodes} episodes.</p>
           <p>
             Status:
-            <i className={statusIcon} title={`Status: ${charProps.status}`}></i>
+            <i
+              className={`${statusIcon} animate__animated animate__rubberBand`}
+              title={`Status: ${charProps.status}`}
+            ></i>
+            ({charProps.status.toLowerCase()})
+          </p>
+          <p>
+            Gender:
+            <i
+              className={`${genderIcon} animate__animated animate__rubberBand`}
+              title={`Gender: ${charProps.gender}`}
+            ></i>
+            ({charProps.gender.toLowerCase()})
           </p>
         </div>
       </div>
@@ -46,6 +67,8 @@ CharacterDetail.propTypes = {
   name: PropTypes.string,
   species: PropTypes.string,
   origin: PropTypes.string,
+  location: PropTypes.string,
+  gender: PropTypes.string,
   status: PropTypes.string,
   episodes: PropTypes.number,
 };

@@ -1,31 +1,51 @@
+@import "../core/variables.scss";
+@import "../core/functions.scss";
+@import "../core/mixins.scss";
 .charList {
-  margin-top: 50px;
+  margin-top: rem(50);
   min-height: 53vh;
   &__title {
-    font-family: "Creepster", cursive;
-    font-size: 100px;
+    font-family: $titles;
+    font-size: rem(70);
     font-weight: 700;
     font-style: italic;
-    color: white;
+    color: $alien;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: rem(10);
+    @include tablet {
+      font-size: rem(100);
+    }
   }
   &__list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    &--item {
-      margin: 25px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(20, 1fr);
+    column-gap: rem(25);
+    row-gap: rem(25);
+    align-items: stretch;
+    justify-items: center;
+    margin-bottom: rem(30);
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(7, 1fr);
+      column-gap: rem(25);
+      row-gap: rem(25);
+    }
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      column-gap: rem(25);
+      row-gap: rem(25);
     }
   }
   &__message {
-    font-size: 36px;
+    font-size: rem(36);
     font-weight: 700;
     font-style: italic;
-    color: black;
+    color: $alien;
     text-align: center;
-    margin-top: 80px;
+    margin-top: rem(80);
   }
 }

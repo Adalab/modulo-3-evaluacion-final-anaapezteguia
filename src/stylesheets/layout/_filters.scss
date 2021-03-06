@@ -1,8 +1,11 @@
+@import "../core/variables.scss";
+@import "../core/functions.scss";
 @import "../core/mixins.scss";
 
 .filters {
-  background-color: chartreuse;
-  padding: 30px 20px 40px;
+  background-color: $alien;
+  padding: rem(30) rem(20) rem(40);
+  width: 100%;
 }
 .form {
   display: flex;
@@ -17,22 +20,27 @@
   &__title {
     font-weight: 700;
     font-style: italic;
-    font-size: 18px;
+    font-size: rem(18);
     text-align: left;
-    color: black;
-    margin-bottom: 5px;
+    color: $basic-dark;
+    margin-bottom: rem(5);
   }
   &__search {
     width: 50%;
-    margin-bottom: 16px;
+    margin-bottom: rem(16);
     @include tablet {
       display: inline;
     }
   }
   &__label {
-    margin-right: 8px;
+    margin-right: rem(8);
   }
   &__input {
-    margin-right: 30px;
+    margin-right: rem(30);
+    padding: rem(10) rem(20);
+    border-radius: rem(24);
+    border: rgb(97, 160, 33) rem(2) dotted;
+    background-color: rgb(212, 250, 173);
+    font-family: $plain-text;
   }
 }

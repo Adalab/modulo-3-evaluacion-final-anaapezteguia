@@ -1,38 +1,43 @@
+@import "../core/variables.scss";
+@import "../core/functions.scss";
+@import "../core/mixins.scss";
 .character {
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
-  padding: 25px;
-  background-color: black;
-  min-height: 340px;
+  border-radius: rem(24);
+  padding: rem(25);
+  background-color: $basic-dark;
+  height: 100%;
+  width: fit-content;
   &__img {
     margin: 0;
-    height: 160px;
-    width: 160px;
+    height: rem(160);
+    width: rem(160);
+    border-radius: 6%;
   }
   &__wrap {
-    margin: 12px 0 6px 0;
+    margin: rem(12) 0 rem(6) 0;
     display: flex;
     flex-direction: column;
-    width: 150px;
+    width: rem(150);
   }
   &__name {
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 22px;
+    font-size: rem(22);
     text-align: left;
-    margin: 0 0 6px 0;
-    color: chartreuse;
+    margin: 0 0 rem(6) 0;
+    color: $alien;
   }
   &__species {
     font-weight: 300;
-    font-size: 18px;
-    color: white;
-    padding: 3px 0;
+    font-size: rem(18);
+    color: $basic-light;
+    padding: rem(3) 0;
     display: inline;
   }
 }
 
 .fas {
-  margin: 0 6px;
+  margin: 0 rem(6);
 }

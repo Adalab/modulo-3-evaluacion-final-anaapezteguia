@@ -1,16 +1,18 @@
+@import "./core/variables.scss";
+@import "./core/functions.scss";
 @import "./core/mixins.scss";
 
 .App {
-  font-family: "Courier Prime", monospace;
+  font-family: $plain-text;
 }
 .wrapper {
-  margin: 0 20px;
+  margin: 0 rem(20);
   @include tablet {
-    margin: 0 50px;
+    margin: 0 rem(50);
   }
   @include desktop {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: rem(1200);
   }
 }
 .main {

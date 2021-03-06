@@ -1,15 +1,17 @@
+@import "../core/variables.scss";
+@import "../core/functions.scss";
 @import "../core/mixins.scss";
 
 .footer {
-  background-color: black;
+  background-color: $basic-dark;
   text-align: center;
-  padding: 20px 25px;
-  position: relative; //or fixed?
+  padding: rem(20) rem(25);
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   &__small {
-    color: #04afc7;
+    color: $sky;
     font-weight: 700;
   }
 }

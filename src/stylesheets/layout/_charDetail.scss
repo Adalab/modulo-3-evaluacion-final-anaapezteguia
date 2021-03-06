@@ -1,8 +1,10 @@
+@import "../core/variables.scss";
+@import "../core/functions.scss";
 @import "../core/mixins.scss";
 
 .charDetail {
-  max-width: 360px;
-  margin: 50px auto;
+  max-width: rem(360);
+  margin: rem(50) auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,12 +18,12 @@
   &__link {
     display: flex;
     flex-direction: column;
-    color: white;
+    color: $alien;
   }
   &__back {
-    font-family: "Courier Prime", monospace;
-    font-size: 18px;
-    padding-left: 4px;
+    font-family: $plain-text;
+    font-size: rem(18);
+    padding-left: rem(4);
   }
   &__img {
     border-radius: 6%;
@@ -31,9 +33,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 24px;
-    padding: 50px 35px;
-    background-color: black;
+    border-radius: rem(24);
+    padding: rem(50) rem(35);
+    background-color: $basic-dark;
     @include tablet {
       flex-direction: row;
       align-items: center;
@@ -41,26 +43,26 @@
     }
   }
   &__info {
-    padding: 40px 0 0 0;
-    color: white;
-    font-size: 22px;
-    line-height: 34px;
+    padding: rem(40) 0 0 0;
+    color: $basic-light;
+    font-size: rem(22);
+    line-height: rem(34);
     align-self: flex-start;
     @include tablet {
-      padding: 0 0 0 40px;
+      padding: 0 0 0 rem(40);
     }
     &--name {
       font-weight: 700;
-      font-size: 40px;
-      line-height: 50px;
+      font-size: rem(40);
+      line-height: rem(50);
       text-transform: uppercase;
-      margin-bottom: 15px;
-      color: chartreuse;
+      margin-bottom: rem(15);
+      color: $alien;
     }
   }
 }
 
 .fa-arrow-alt-circle-left {
-  margin: 0 8px 10px 0;
+  margin: 0 rem(8) rem(10) 0;
   text-align: end;
 }
