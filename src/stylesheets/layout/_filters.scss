@@ -28,12 +28,20 @@
   &__search {
     width: 50%;
     margin-bottom: rem(16);
+    &--check {
+      display: block;
+      margin-top: rem(12);
+    }
     @include tablet {
       display: inline;
     }
   }
   &__label {
     margin-right: rem(8);
+    &--check {
+      text-align: left;
+      margin-top: rem(8);
+    }
   }
   &__input {
     margin-right: rem(30);
@@ -42,5 +50,15 @@
     border: rgb(97, 160, 33) rem(2) dotted;
     background-color: rgb(212, 250, 173);
     font-family: $plain-text;
+    &--check {
+      text-align: left;
+      margin-right: rem(8);
+    }
+    &--name {
+      margin-right: rem(18);
+    }
   }
+}
+.labelName {
+  margin-bottom: rem(8);
 }

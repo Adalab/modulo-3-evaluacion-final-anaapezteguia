@@ -14,6 +14,8 @@ const App = () => {
   const [characters, setCharacters] = useState([]);
   const [nameState, setNameState] = useState("");
   const [speciesState, setSpeciesState] = useState("noFilter");
+  const [originState, setOriginState] = useState([]);
+  // const [uniqueOrgState, setUniqueOrgState] = useState([]);
 
   // get data from API
   useEffect(() => {
@@ -26,8 +28,18 @@ const App = () => {
       setNameState(newValue.value);
     } else if (newValue.key === "speciesValue") {
       setSpeciesState(newValue.value);
+    } else if (newValue.key === "origin") {
+      const indexOrigin = originState.indexOf(newValue.value);
+      if (indexOrigin === -1) {
+        setOriginState([...originState, newValue.value]);
+      } else {
+        const newOrigin = [...originState];
+        newOrigin.splice(indexOrigin, 1);
+        setOriginState(newOrigin);
+      }
     }
   };
+
   // filters
   const filteredCharacters = characters
     .filter((character) => {
@@ -38,7 +50,26 @@ const App = () => {
       return speciesState === "noFilter"
         ? true
         : character.species === speciesState;
+    })
+    .filter((character) => {
+      return originState.length === 0
+        ? true
+        : originState.includes(character.origin);
     });
+  // step1: extract origins
+  const getOrigin = characters.map((character) => {
+    return character.origin;
+  });
+  // step 2: check for duplicates,if so it returns true
+  const checkForDuplicates = (array, keyName) => {
+    return new Set(array.map((item) => item[keyName])).size !== array.length;
+  };
+  // console.log(checkForDuplicates(getOrigin, origin));
+
+  // step 3: make a new array (this was a tough one to find out!!!)
+  const uniqueOrigin = [...new Set(getOrigin)];
+  // setUniqueOrgState(uniqueOrigin);
+  // console.log(uniqueOrigin);
 
   // render character detail page or not found
   const renderCharacterDetail = (props) => {
@@ -66,6 +97,7 @@ const App = () => {
               handleFilter={handleFilter}
               nameState={nameState}
               speciesState={speciesState}
+              uniqueOrigin={uniqueOrigin}
             />
             <CharacterList filteredCharacters={filteredCharacters} />
           </Route>

@@ -1,13 +1,14 @@
 import FilterByName from "./FilterByName";
 import FilterBySpecies from "./FilterBySpecies";
+import FilterByOrigin from "./FilterByOrigin";
 import "../stylesheets/layout/_filters.scss";
 import PropTypes from "prop-types";
 
 const handleSubmit = (ev) => {
   ev.preventDefault();
 };
-
 const Filters = (props) => {
+  // console.log(props.originState);
   return (
     <section className="filters">
       <div className="wrapper">
@@ -22,6 +23,10 @@ const Filters = (props) => {
             handleFilter={props.handleFilter}
             speciesState={props.speciesState}
           />
+          <FilterByOrigin
+            handleFilter={props.handleFilter}
+            uniqueOrigin={props.uniqueOrigin}
+          />
         </form>
       </div>
     </section>
@@ -32,5 +37,6 @@ Filters.propTypes = {
   nameState: PropTypes.string,
   speciesState: PropTypes.string,
   handleFilter: PropTypes.func,
+  uniqueOrigin: PropTypes.array,
 };
 export default Filters;

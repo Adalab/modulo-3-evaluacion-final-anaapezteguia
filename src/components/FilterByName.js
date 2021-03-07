@@ -10,22 +10,21 @@ const FilterByName = (props) => {
   return (
     <div className="form__search">
       <label className="form__label" htmlFor="name">
-        Name:
+        Name:{" "}
+        <input
+          className="form__input"
+          type="text"
+          name="name"
+          id="name"
+          value={props.nameState}
+          onChange={handleChange}
+        />
       </label>
-      <input
-        className="form__input"
-        type="text"
-        name="name"
-        id="name"
-        value={props.nameState}
-        onChange={handleChange}
-      />
     </div>
   );
 };
 FilterByName.propTypes = {
   nameState: PropTypes.string,
-  speciesState: PropTypes.string,
   handleFilter: PropTypes.func,
 };
 export default FilterByName;
