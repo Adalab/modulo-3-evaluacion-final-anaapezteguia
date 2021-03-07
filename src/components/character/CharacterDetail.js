@@ -1,4 +1,4 @@
-import "../stylesheets/layout/_charDetail.scss";
+import "../../stylesheets/layout/_charDetail.scss";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 

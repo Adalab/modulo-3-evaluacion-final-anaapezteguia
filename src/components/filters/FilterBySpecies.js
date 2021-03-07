@@ -12,7 +12,7 @@ const FilterBySpecies = (props) => {
       <label className="form__label" htmlFor="species">
         Species:{" "}
         <select
-          className="form__input"
+          className="form__input species"
           name="speciesValue"
           id="species"
           value={props.speciesState}

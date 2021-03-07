@@ -8,7 +8,7 @@ const FilterByOrigin = (props) => {
     });
   };
 
-  const originList = props.uniqueOrigin.map((origin, i) => {
+  const originList = props.getSelected.map((origin, i) => {
     return (
       <label key={i} className="form__label--check">
         <input
@@ -16,7 +16,8 @@ const FilterByOrigin = (props) => {
           name="origin"
           className="form__input--check"
           value={origin}
-          onClick={handleOrigin}
+          onChange={handleOrigin}
+          checked={props.originState.includes(origin)}
         />{" "}
         <span className="form__input--name">{origin}</span>
       </label>
@@ -30,7 +31,8 @@ const FilterByOrigin = (props) => {
   );
 };
 FilterByOrigin.propTypes = {
-  uniqueOrigin: PropTypes.array,
+  originState: PropTypes.array,
+  getSelected: PropTypes.array,
   handleFilter: PropTypes.func,
 };
 export default FilterByOrigin;

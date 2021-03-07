@@ -8,29 +8,38 @@
   width: 100%;
 }
 .form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: left;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr) fit-content;
+  row-gap: rem(20);
+  align-items: start;
+  justify-items: left;
+  grid-template-areas: "header" "name" "species" "origin" "reset";
   @include tablet {
-    flex-direction: row;
-    flex-wrap: nowrap;
+    grid-template-columns: repeat(3, 1fr) fit-content;
+    grid-template-rows: repeat(3, 1fr) fit-content;
+    grid-template-areas:
+      "header header header"
+      "name species origin"
+      "reset - origin";
+    column-gap: 0;
+    row-gap: 0;
   }
   &__title {
+    grid-area: header;
     font-weight: 700;
     font-style: italic;
     font-size: rem(18);
     text-align: left;
     color: $basic-dark;
     margin-bottom: rem(5);
+    @include tablet {
+    }
   }
   &__search {
     width: 50%;
-    margin-bottom: rem(16);
     &--check {
       display: block;
-      margin-top: rem(12);
     }
     @include tablet {
       display: inline;
@@ -39,6 +48,7 @@
   &__label {
     margin-right: rem(8);
     &--check {
+      display: block;
       text-align: left;
       margin-top: rem(8);
     }
@@ -57,8 +67,44 @@
     &--name {
       margin-right: rem(18);
     }
+    &.species {
+      cursor: pointer;
+    }
+    &:hover {
+      background-color: rgb(173, 229, 250);
+      border: $sky rem(2) dotted;
+      font-weight: 700;
+    }
+  }
+  &__reset {
+    margin-right: rem(30);
+    padding: rem(10) rem(20);
+    border-radius: rem(24);
+    border: rgb(97, 160, 33) rem(2) dotted;
+    background-color: rgb(212, 250, 173);
+    font-family: $plain-text;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(173, 229, 250);
+      border: $sky rem(2) dotted;
+      font-weight: 700;
+    }
   }
 }
 .labelName {
   margin-bottom: rem(8);
+}
+.nameArea {
+  grid-area: name;
+}
+.speciesArea {
+  grid-area: species;
+}
+.originArea {
+  grid-area: origin;
+  @include tablet {
+  }
+}
+.resetArea {
+  grid-area: reset;
 }

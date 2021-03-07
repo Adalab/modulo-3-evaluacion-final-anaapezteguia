@@ -1,4 +1,4 @@
-import "../stylesheets/layout/_charList.scss";
+import "../../stylesheets/layout/_charList.scss";
 import Character from "./Character";
 import PropTypes from "prop-types";
 

@@ -3,19 +3,18 @@ import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import Filters from "./Filters";
-import CharacterList from "./CharacterList";
-import CharacterDetail from "./CharacterDetail";
+import Filters from "./filters/Filters";
+import CharacterList from "./character/CharacterList";
+import CharacterDetail from "./character/CharacterDetail";
 import getDataFromApi from "../services/getDataFromApi";
 import NotFound from "./NotFound";
 
 const App = () => {
-  //declare states
+  //declare states to control
   const [characters, setCharacters] = useState([]);
   const [nameState, setNameState] = useState("");
   const [speciesState, setSpeciesState] = useState("noFilter");
   const [originState, setOriginState] = useState([]);
-  // const [uniqueOrgState, setUniqueOrgState] = useState([]);
 
   // get data from API
   useEffect(() => {
@@ -39,6 +38,23 @@ const App = () => {
       }
     }
   };
+  // extract origins to new array
+  const getSelected = () => {
+    // step1: map
+    const getOrigin = characters.map((character) => {
+      return character.origin;
+    });
+    // step 2: check for duplicates,if so it returns true (just for checking)
+    const checkForDuplicates = (array, keyName) => {
+      return new Set(array.map((item) => item[keyName])).size !== array.length;
+    };
+    // console.log(checkForDuplicates(getOrigin, origin));
+
+    // step 3: make a new array (this was a tough one! => OMG! number 2)
+    const uniqueOrigin = [...new Set(getOrigin)];
+
+    return uniqueOrigin;
+  };
 
   // filters
   const filteredCharacters = characters
@@ -56,27 +72,20 @@ const App = () => {
         ? true
         : originState.includes(character.origin);
     });
-  // step1: extract origins
-  const getOrigin = characters.map((character) => {
-    return character.origin;
-  });
-  // step 2: check for duplicates,if so it returns true
-  const checkForDuplicates = (array, keyName) => {
-    return new Set(array.map((item) => item[keyName])).size !== array.length;
-  };
-  // console.log(checkForDuplicates(getOrigin, origin));
 
-  // step 3: make a new array (this was a tough one to find out!!!)
-  const uniqueOrigin = [...new Set(getOrigin)];
-  // setUniqueOrgState(uniqueOrigin);
-  // console.log(uniqueOrigin);
+  // reset button
+  const handleReset = () => {
+    setNameState("");
+    setSpeciesState("noFilter");
+    setOriginState([]);
+  };
 
   // render character detail page or not found
   const renderCharacterDetail = (props) => {
-    //we specify here the param that goes after : at Route component
+    //we specify here the param that goes after : at Route component => :url
     const path = props.match.params.url;
     const selectedCharacter = characters.find((character) => {
-      // urlPath is a prop specifically prepared at getDataFromApi to prepare the "pretty url" for SEO, out here did not work
+      // urlPath is a prop I have specifically prepared at getDataFromApi to prepare the "pretty url" for SEO, out here did not work => OMG! number 1
       return character.urlPath === path;
     });
     if (selectedCharacter) {
@@ -97,7 +106,9 @@ const App = () => {
               handleFilter={handleFilter}
               nameState={nameState}
               speciesState={speciesState}
-              uniqueOrigin={uniqueOrigin}
+              getSelected={getSelected()}
+              originState={originState}
+              handleReset={handleReset}
             />
             <CharacterList filteredCharacters={filteredCharacters} />
           </Route>
