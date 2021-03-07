@@ -1,21 +1,23 @@
 {
   "files": {
-    "main.css": "./static/css/main.6a9fc8ca.chunk.css",
-    "main.js": "./static/js/main.652a3636.chunk.js",
-    "main.js.map": "./static/js/main.652a3636.chunk.js.map",
+    "main.css": "./static/css/main.c87cc3a9.chunk.css",
+    "main.js": "./static/js/main.78d41ca0.chunk.js",
+    "main.js.map": "./static/js/main.78d41ca0.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.03a77393.js",
     "runtime-main.js.map": "./static/js/runtime-main.03a77393.js.map",
-    "static/js/2.44e17473.chunk.js": "./static/js/2.44e17473.chunk.js",
-    "static/js/2.44e17473.chunk.js.map": "./static/js/2.44e17473.chunk.js.map",
+    "static/js/2.061e2972.chunk.js": "./static/js/2.061e2972.chunk.js",
+    "static/js/2.061e2972.chunk.js.map": "./static/js/2.061e2972.chunk.js.map",
     "index.html": "./index.html",
-    "static/css/main.6a9fc8ca.chunk.css.map": "./static/css/main.6a9fc8ca.chunk.css.map",
-    "static/js/2.44e17473.chunk.js.LICENSE.txt": "./static/js/2.44e17473.chunk.js.LICENSE.txt",
-    "static/media/Rick-and-Morty-logo.de13d484.png": "./static/media/Rick-and-Morty-logo.de13d484.png"
+    "static/css/main.c87cc3a9.chunk.css.map": "./static/css/main.c87cc3a9.chunk.css.map",
+    "static/js/2.061e2972.chunk.js.LICENSE.txt": "./static/js/2.061e2972.chunk.js.LICENSE.txt",
+    "static/media/Rick-and-Morty-logo.de13d484.png": "./static/media/Rick-and-Morty-logo.de13d484.png",
+    "static/media/rick-and-morty-fingers.11f4b1b2.png": "./static/media/rick-and-morty-fingers.11f4b1b2.png",
+    "static/media/index.scss": "./static/media/sky.bf5388cf.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.03a77393.js",
-    "static/js/2.44e17473.chunk.js",
-    "static/css/main.6a9fc8ca.chunk.css",
-    "static/js/main.652a3636.chunk.js"
+    "static/js/2.061e2972.chunk.js",
+    "static/css/main.c87cc3a9.chunk.css",
+    "static/js/main.78d41ca0.chunk.js"
   ]
 }
