@@ -1,6 +1,7 @@
 import FilterByName from "../filters/FilterByName";
 import FilterBySpecies from "../filters/FilterBySpecies";
 import FilterByOrigin from "../filters/FilterByOrigin";
+import FilterByStatus from "../filters/FilterByStatus";
 import ResetButton from "../ResetButton";
 import "../../stylesheets/layout/_filters.scss";
 import PropTypes from "prop-types";
@@ -31,6 +32,11 @@ const Filters = (props) => {
             getSelected={props.getSelected}
             originState={props.originState}
           />
+          <FilterByStatus
+            className="speciesArea"
+            handleFilter={props.handleFilter}
+            speciesState={props.statusState}
+          />
           <ResetButton className="resetArea" handleReset={props.handleReset} />
         </form>
       </div>
@@ -42,6 +48,7 @@ Filters.propTypes = {
   nameState: PropTypes.string,
   speciesState: PropTypes.string,
   originState: PropTypes.array,
+  statusState: PropTypes.string,
   handleFilter: PropTypes.func,
   handleReset: PropTypes.func,
   getSelected: PropTypes.array,

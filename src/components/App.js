@@ -15,6 +15,7 @@ const App = () => {
   const [nameState, setNameState] = useState("");
   const [speciesState, setSpeciesState] = useState("noFilter");
   const [originState, setOriginState] = useState([]);
+  const [statusState, setStatusState] = useState("All");
 
   // get data from API
   useEffect(() => {
@@ -36,6 +37,8 @@ const App = () => {
         newOrigin.splice(indexOrigin, 1);
         setOriginState(newOrigin);
       }
+    } else if (newValue.key === "statusValue") {
+      setStatusState(newValue.value);
     }
   };
   // extract origins to new array
@@ -71,12 +74,16 @@ const App = () => {
       return originState.length === 0
         ? true
         : originState.includes(character.origin);
+    })
+    .filter((character) => {
+      return statusState === "All" ? true : character.status === statusState;
     });
 
   // reset button
   const handleReset = () => {
     setNameState("");
     setSpeciesState("noFilter");
+    setStatusState("All");
     setOriginState([]);
   };
 
@@ -108,6 +115,7 @@ const App = () => {
               speciesState={speciesState}
               getSelected={getSelected()}
               originState={originState}
+              statusState={statusState}
               handleReset={handleReset}
             />
             <CharacterList filteredCharacters={filteredCharacters} />
