@@ -1,6 +1,8 @@
+![www.ana-am.es](./src/images/ana_am_es-logo.png)
+
 # Evaluación final módulo 3: React JS
 
-Esta es la prueba de evaluación final del módulo 3 de Ana Apezteguía Martínez.
+Esta es la prueba de evaluación final del módulo 3 de Ana Apezteguía Martínez en Adalab.
 
 Este ejercicio está realizado con la librería React.js, especializada en crear interfaces de usuario componentizadas, concretamente usando <code>create-react-app</code>, un generador que automaliza la instalación de React y Babel, transforma el código ES6 en ES5 y preconfigura un proyecto. Incorpora React Router, una librería compatible con React que nos permite especificar rutas en nuestra aplicación web usando componentes de React, para escribir aplicaciones web de una sola página (_Single Page Applications_, en inglés).
 
@@ -25,3 +27,5 @@ Se evalúan ciertas características adicionales como las citadas a continuació
 - Url compartible (en caso de ser una url de localhost mostrar un mensaje de que el personaje no existe).
 - Que el listado de personajes se ordene alfabéticamente por nombre.
 - Añadir más filtros.
+
+© Ana Apezteguía Martínez.

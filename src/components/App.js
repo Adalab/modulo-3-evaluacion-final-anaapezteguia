@@ -61,7 +61,6 @@ const App = () => {
     .filter((character) => {
       return character.name.toLowerCase().includes(nameState.toLowerCase());
     })
-    .sort((a, z) => (a.name > z.name ? 1 : a.name < z.name ? -1 : 0))
     .filter((character) => {
       return speciesState === "noFilter"
         ? true
@@ -71,7 +70,8 @@ const App = () => {
       return originState.length === 0
         ? true
         : originState.includes(character.origin);
-    });
+    })
+    .sort((a, z) => (a.name > z.name ? 1 : a.name < z.name ? -1 : 0));
 
   // reset button
   const handleReset = () => {
